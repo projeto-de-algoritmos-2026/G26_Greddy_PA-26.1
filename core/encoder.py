@@ -56,3 +56,30 @@ def build_codes_dict(node, current_code="", codes_dict=None):
     build_codes_dict(node.right, current_code + "1", codes_dict)
 
     return codes_dict
+
+# Transforma os dados originais em uma string de bits
+def encode_data(data, codes_dict):
+    encoded_bits = "".join([codes_dict[byte] for byte in data])
+    return encoded_bits
+
+# Adiciona zeros ao final para que o tamanho da string seja múltiplo de 8
+def pad_encoded_data(encoded_bits):
+    extra_padding = 8 - (len(encoded_bits) % 8)
+    
+    if extra_padding == 8:
+        extra_padding = 0
+        
+    padded_bits = encoded_bits + ("0" * extra_padding)
+    
+    return padded_bits, extra_padding
+
+# Converte a string de bits em um array de bytes
+def get_byte_array(padded_bits):
+    b = bytearray()
+    
+    for i in range(0, len(padded_bits), 8):
+        byte_str = padded_bits[i:i+8]
+        # Converte a string de base 2 (ex: "10110010") para um byte real e adiciona
+        b.append(int(byte_str, 2))
+        
+    return b
