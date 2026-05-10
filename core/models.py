@@ -5,6 +5,6 @@ class Node:
         self.left = None
         self.right = None
 
-    # Ensina o heapq a ordenar os nós com base na frequência
+    # Permite fazer comparações do tipo Node1 < Node2
     def __lt__(self, other):
         return self.freq < other.freq
