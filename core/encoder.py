@@ -1,6 +1,7 @@
 import collections
 import heapq
 from core.models import Node
+from utils.file_manager import save_compressed_file
 
 # pega o arquivo binário e calcula frequências
 def get_frequencies(file_path):
@@ -83,3 +84,33 @@ def get_byte_array(padded_bits):
         b.append(int(byte_str, 2))
         
     return b
+
+# Função principal que orquestra todo o processo de compressão
+def compress_file(input_path, output_path):
+    
+    # Lê o arquivo e pega as frequências
+    frequencias, data = get_frequencies(input_path)
+    
+    # Trata o caso extremo de arquivo vazio
+    if not data:
+        with open(output_path, 'wb') as f:
+            pass # Cria um arquivo vazio e encerra
+        return
+        
+    # Constrói a árvore de Huffman
+    root = build_huffman_tree(frequencias)
+    
+    # Gera a tabela de conversão
+    codes_dict = build_codes_dict(root)
+    
+    # Transforma os dados em bits
+    encoded_bits = encode_data(data, codes_dict)
+    
+    # Adiciona o Padding
+    padded_bits, extra_padding = pad_encoded_data(encoded_bits)
+    
+    # Converte para array de bytes reais
+    compressed_byte_array = get_byte_array(padded_bits)
+    
+    # Salva o arquivo final
+    save_compressed_file(output_path, frequencias, extra_padding, compressed_byte_array)
