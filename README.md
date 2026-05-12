@@ -51,7 +51,15 @@ git clone https://github.com/projeto-de-algoritmos-2026/G26_Greddy_PA-26.1.git
 cd "G26_Greedy_PA-26.1"
 ```
 
-2. **Execute o arquivo principal**
+2. **Suba um ambiente virtual e realize a instalação das dependências**
+
+```bash
+python3 -m venv .venv
+source .venv/bin/activate
+pip install -r requirements.txt
+```
+
+3. **Execute o arquivo principal**
 
 ```bash
 python3 main.py
