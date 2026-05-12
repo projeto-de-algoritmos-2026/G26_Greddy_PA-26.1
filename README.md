@@ -33,32 +33,31 @@ Para que a descompressão seja possível, o arquivo gerado possui uma estrutura 
 
 ---
 
-## Screenshots
-
-Ainda não tem.
-
 ## Configuração e Execução
 
 ### Pré-requisitos
-Certifique-se de ter instalado em sua máquina:
-- [Python 3](https://www.python.org/)
-- [Tkinter](https://docs.python.org/3/library/tkinter.html)
+Certifique-se de ter [Python 3](https://www.python.org/) instalado em sua máquina.
 
-### Execução
+### Passo a Passo
 1. **Clone o repositório**:
 ```bash
 git clone https://github.com/projeto-de-algoritmos-2026/G26_Greddy_PA-26.1.git
 cd "G26_Greedy_PA-26.1"
 ```
 
-2. **Suba um ambiente virtual e realize a instalação das dependências**
+2. **Realize a instalação do Tkinter**
+
+```bash
+sudo apt install python3-tk
+```
+
+2. **Suba um ambiente virtual e instale as dependências**
 
 ```bash
 python3 -m venv .venv
 source .venv/bin/activate
 pip install -r requirements.txt
 ```
-
 3. **Execute o arquivo principal**
 
 ```bash
