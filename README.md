@@ -6,7 +6,7 @@
 | 23/1027121 | José Victor Gabriel Menezes da Costa  |
 | 23/1011284 | Eduardo Silva Waski                   |
 
-**Link Apresentação**: [https://www.youtube.com/watch?v=LINK_AQUI]
+**Link Apresentação**: [https://youtu.be/IVSBPviCZx8]
 
 ## Sobre 
 Este projeto implementa um **Compactador e Descompactador de Arquivos** utilizando o **Algoritmo de Huffman**. O objetivo é demonstrar a aplicação prática de algoritmos ambiciosos em compactação de dados sem perdas.
